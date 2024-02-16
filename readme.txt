@@ -12,7 +12,7 @@ License:            GPLv3 or later
 License URI:        https://www.gnu.org/licenses/gpl.html
 Tags:               cdn, content delivery network, caching, CloudFront, KeyCDN, RocketCDN, Akamai, Rackspace, Azure, {eac}Doojigger
 WordPress URI:		https://wordpress.org/plugins/eacsimplecdn
-GitHub URI:			https://github.com/KBurkholder/eacSimplaCDN
+GitHub URI:			https://github.com/EarthAsylum/eacSimplaCDN
 
 {eac}SimpleCDN enables the use of Content Delivery Network assets on your WordPress site, significantly decreasing your page load times and improving the user experience.
 
