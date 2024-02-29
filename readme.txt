@@ -11,8 +11,8 @@ Contributors:       kevinburkholder
 License:            GPLv3 or later
 License URI:        https://www.gnu.org/licenses/gpl.html
 Tags:               cdn, content delivery network, caching, CloudFront, KeyCDN, RocketCDN, Akamai, Rackspace, Azure, {eac}Doojigger
-WordPress URI:		https://wordpress.org/plugins/eacsimplecdn
-GitHub URI:			https://github.com/EarthAsylum/eacSimplaCDN
+WordPress URI:      https://wordpress.org/plugins/eacsimplecdn
+GitHub URI:         https://github.com/EarthAsylum/eacSimplaCDN
 
 {eac}SimpleCDN enables the use of Content Delivery Network assets on your WordPress site, significantly decreasing your page load times and improving the user experience.
 
@@ -42,10 +42,10 @@ If the CDN service does not automatically retrieve files from your origin server
 
 The extra options include:
 
-+	*Additional Domains* treated as local domain(s), useful with multi-site and/or when your CDN has multiple origins.
-+	*Cacheable Downloads* additional file type(s) to be rewitten with the CDN host.
-+	*Page Inclusions* to only include specific page URIs based on string(s) in the URI.
-+	*URL Inclusions* to limit URLs on the page to be rewritten by string(s) in the URL.
++   *Additional Domains* treated as local domain(s), useful with multi-site and/or when your CDN has multiple origins.
++   *Cacheable Downloads* additional file type(s) to be rewitten with the CDN host.
++   *Page Inclusions* to only include specific page URIs based on string(s) in the URI.
++   *URL Inclusions* to limit URLs on the page to be rewritten by string(s) in the URL.
 
 To enable the extra options, first enable the *SimpleCDN Menu* option, then select *Enable Extra Options* from the *SimpleCDN* menu.
 
@@ -92,17 +92,17 @@ See the [examples](#examples) for more detail.
 
 An http request may include a header to disable the CDN...
 
-	x-Simple-CDN: off
+    x-Simple-CDN: off
 
 {eac}SimpleCDN includes an http response header...
 
-	x-Simple-CDN: on
+    x-Simple-CDN: on
 
 = Important Notes =
 
-+	*Time To First Byte (TTFB) may be slightly longer.* Your pages are not being served by your CDN and {eac}SimpleCDN captures and buffers the page, then rewrites the asset URLs in the page, before any content is delivered to the browser. Although {eac}SimpleCDN endevores to do this as quickly and efficiently as possible, doing it takes a little more time than not doing it.
++   *Time To First Byte (TTFB) may be slightly longer.* Your pages are not being served by your CDN and {eac}SimpleCDN captures and buffers the page, then rewrites the asset URLs in the page, before any content is delivered to the browser. Although {eac}SimpleCDN endevores to do this as quickly and efficiently as possible, doing it takes a little more time than not doing it.
 
-+	*Load time may be deceiving.* For example, my business network and my web server are in the same zone as the closest CDN edge server (maybe in the same datacenter). Checking load times with and without the CDN from my location produces negligible difference. However, the CDN produces significant load time reduction in more distant zones.
++   *Load time may be deceiving.* For example, my business network and my web server are in the same zone as the closest CDN edge server (maybe in the same datacenter). Checking load times with and without the CDN from my location produces negligible difference. However, the CDN produces significant load time reduction in more distant zones.
 
 = Results =
 
@@ -115,120 +115,120 @@ You can test your results here: [PageSpeed Insights](https://pagespeed.web.dev/)
 
 = All CDNs =
 
-	// disable CDN use
-	\add_filter('SimpleCDN_page_enabled','__return_false');
+    // disable CDN use
+    \add_filter('SimpleCDN_page_enabled','__return_false');
 
 
-	// flush the cdn cache (if supported)
-	\do_action('SimpleCDN_flush_cache');
-	// or...
-	if ($cdn = $this->getExtension('Simple_CDN')) {
-		$cdn->flush_cdn_cache();
-	}
+    // flush the cdn cache (if supported)
+    \do_action('SimpleCDN_flush_cache');
+    // or...
+    if ($cdn = $this->getExtension('Simple_CDN')) {
+        $cdn->flush_cdn_cache();
+    }
 
 
-	// do action whenever the cdn cache is flushed
-	\add_action('SimpleCDN_cache_flushed', 'my_cdn_flushed', 10, 2);
+    // do action whenever the cdn cache is flushed
+    \add_action('SimpleCDN_cache_flushed', 'my_cdn_flushed', 10, 2);
 
-	/**
-	 * After purging the CDN cache
-	 *
-	 * @param	object		$cdn 		provider object
-	 * 			object 		$cdn->parent	the SimpleCDN class object
-	 *			string		$cdn->endpoint	e.g. c2nnnn.r10.cf1.rackcdn.com/path
-	 *			string		$cdn->hostname	e.g. c2nnnn.r10.cf1.rackcdn.com
-	 *			string		$cdn->bucket	e.g. c2nnnn
-	 *			string		$cdn->host		e.g. r10.cf1.rackcdn.com
-	 *			string		$cdn->domain	e.g. rackcdn.com
-	 *			string		$cdn->provider	e.g. Rackspace
-	 * @param	string|bool	$context 	context ('purge_button'|'purge_menu') or false (non-interactive)
-	 */
-	function my_cdn_flushed($cdn,$context)
-	{
-		$cdn->admin_success($context,"Success: The CDN purge is in progress");
-	}
-
-
-	// limit the file types being cached by the CDN
-	\add_filter('SimpleCDN_file_types', function($types)
-		{
-			return '.css|.jpeg|.jpg|.js|.png|.webp';
-		}
-	);
+    /**
+     * After purging the CDN cache
+     *
+     * @param   object      $cdn        provider object
+     *          object      $cdn->parent    the SimpleCDN class object
+     *          string      $cdn->endpoint  e.g. c2nnnn.r10.cf1.rackcdn.com/path
+     *          string      $cdn->hostname  e.g. c2nnnn.r10.cf1.rackcdn.com
+     *          string      $cdn->bucket    e.g. c2nnnn
+     *          string      $cdn->host      e.g. r10.cf1.rackcdn.com
+     *          string      $cdn->domain    e.g. rackcdn.com
+     *          string      $cdn->provider  e.g. Rackspace
+     * @param   string|bool $context    context ('purge_button'|'purge_menu') or false (non-interactive)
+     */
+    function my_cdn_flushed($cdn,$context)
+    {
+        $cdn->admin_success($context,"Success: The CDN purge is in progress");
+    }
 
 
-	// add plugins folder to excluded strings
-	\add_filter('SimpleCDN_exclude_strings', function($exclude)
-		{
-			return $exclude . '|/plugins/';
-		}
-	);
+    // limit the file types being cached by the CDN
+    \add_filter('SimpleCDN_file_types', function($types)
+        {
+            return '.css|.jpeg|.jpg|.js|.png|.webp';
+        }
+    );
+
+
+    // add plugins folder to excluded strings
+    \add_filter('SimpleCDN_exclude_strings', function($exclude)
+        {
+            return $exclude . '|/plugins/';
+        }
+    );
 
 
 = Universal CDNs =
 
-	// add additional settings fields
-	\add_filter( 'SimpleCDN_add_settings', 'my_add_cdn_fields', 10, 2 );
+    // add additional settings fields
+    \add_filter( 'SimpleCDN_add_settings', 'my_add_cdn_fields', 10, 2 );
 
-	/**
-	 * Add custom options/settings
-	 *
-	 * @param	array		$options 	array()
-	 * @param	object		$cdn 		provider object
-	 * 			object 		$cdn->parent	the SimpleCDN class object
-	 *			string		$cdn->endpoint	e.g. c2nnnn.r10.cf1.rackcdn.com/path
-	 *			string		$cdn->hostname	e.g. c2nnnn.r10.cf1.rackcdn.com
-	 *			string		$cdn->bucket	e.g. c2nnnn
-	 *			string		$cdn->host		e.g. r10.cf1.rackcdn.com
-	 *			string		$cdn->domain	e.g. rackcdn.com
-	 *			string		$cdn->provider	e.g. Rackspace
-	 */
-	function my_add_cdn_fields($options,$cdn)
-	{
-		$options['simple_cdn_universal_key'] = array(
-				'type'		=>	'text',
-				'label'		=>	'API Key',
-				'info'		=>	'Your '.$cdn->provider.' API key',
-		);
-		return $options;
-	}
+    /**
+     * Add custom options/settings
+     *
+     * @param   array       $options    array()
+     * @param   object      $cdn        provider object
+     *          object      $cdn->parent    the SimpleCDN class object
+     *          string      $cdn->endpoint  e.g. c2nnnn.r10.cf1.rackcdn.com/path
+     *          string      $cdn->hostname  e.g. c2nnnn.r10.cf1.rackcdn.com
+     *          string      $cdn->bucket    e.g. c2nnnn
+     *          string      $cdn->host      e.g. r10.cf1.rackcdn.com
+     *          string      $cdn->domain    e.g. rackcdn.com
+     *          string      $cdn->provider  e.g. Rackspace
+     */
+    function my_add_cdn_fields($options,$cdn)
+    {
+        $options['simple_cdn_universal_key'] = array(
+                'type'      =>  'text',
+                'label'     =>  'API Key',
+                'info'      =>  'Your '.$cdn->provider.' API key',
+        );
+        return $options;
+    }
 
 
-	// add custom code to flush/purge the CDN
-	\add_action( 'admin_init', 	function()
-	{
-		\add_action( 'SimpleCDN_purge_cdn_cache', 'my_purge_cdn_cache', 10, 2 );
-	});
+    // add custom code to flush/purge the CDN
+    \add_action( 'admin_init',  function()
+    {
+        \add_action( 'SimpleCDN_purge_cdn_cache', 'my_purge_cdn_cache', 10, 2 );
+    });
 
-	/**
-	 * Purge the CDN cache (custom)
-	 *
-	 * @param	object		$cdn 		provider object
-	 * 			object 		$cdn->parent	the SimpleCDN class object
-	 *			string		$cdn->endpoint	e.g. c2nnnn.r10.cf1.rackcdn.com/path
-	 *			string		$cdn->hostname	e.g. c2nnnn.r10.cf1.rackcdn.com
-	 *			string		$cdn->bucket	e.g. c2nnnn
-	 *			string		$cdn->host		e.g. r10.cf1.rackcdn.com
-	 *			string		$cdn->domain	e.g. rackcdn.com
-	 *			string		$cdn->provider	e.g. Rackspace
-	 * @param	string|bool	$context 	context ('purge_button'|'purge_menu') or false (non-interactive)
-	 */
-	function my_purge_cdn_cache($cdn,$context)
-	{
-		if ($apiKey = $cdn->get_option('simple_cdn_universal_key'))
-		{
-			/* code to purge the cdn cache */
-		}
+    /**
+     * Purge the CDN cache (custom)
+     *
+     * @param   object      $cdn        provider object
+     *          object      $cdn->parent    the SimpleCDN class object
+     *          string      $cdn->endpoint  e.g. c2nnnn.r10.cf1.rackcdn.com/path
+     *          string      $cdn->hostname  e.g. c2nnnn.r10.cf1.rackcdn.com
+     *          string      $cdn->bucket    e.g. c2nnnn
+     *          string      $cdn->host      e.g. r10.cf1.rackcdn.com
+     *          string      $cdn->domain    e.g. rackcdn.com
+     *          string      $cdn->provider  e.g. Rackspace
+     * @param   string|bool $context    context ('purge_button'|'purge_menu') or false (non-interactive)
+     */
+    function my_purge_cdn_cache($cdn,$context)
+    {
+        if ($apiKey = $cdn->get_option('simple_cdn_universal_key'))
+        {
+            /* code to purge the cdn cache */
+        }
 
-		if (/* error condition */)
-		{
-			$cdn->admin_error($context,"Error: status {$status}, " . $message);
-		}
-		else
-		{
-			$cdn->admin_success($context,"Success: The CDN purge is in progress");
-		}
-	}
+        if (/* error condition */)
+        {
+            $cdn->admin_error($context,"Error: status {$status}, " . $message);
+        }
+        else
+        {
+            $cdn->admin_success($context,"Success: The CDN purge is in progress");
+        }
+    }
 
 
 == Installation ==
@@ -292,35 +292,35 @@ You should receive a copy of the GNU General Public License along with this prog
 
 = Version 1.1.4 – December 10, 2023 =
 
-+	Fixed array error on extra domains.
-	+	Rearranged hidden fields.
-+	Use 'validate' instead of 'sanitize' callback.
-	+	Sanitize not called on empty field.
-+	Use smaller textarea fields.
++   Fixed array error on extra domains.
+    +   Rearranged hidden fields.
++   Use 'validate' instead of 'sanitize' callback.
+    +   Sanitize not called on empty field.
++   Use smaller textarea fields.
 
 = Version 1.1.3 – December 1, 2023 =
 
-+	Fixed a critical error when a) extra options are enabled (from menu), b) options are not updated, c) options are pushed (or pulled) to other site(s) in the network.
++   Fixed a critical error when a) extra options are enabled (from menu), b) options are not updated, c) options are pushed (or pulled) to other site(s) in the network.
 
 = Version 1.1.2 – October 3, 2023 =
 
-+	Removed now redundant 'admin_notices' action.
-+	Enhanced admin bar menu (using {eac}Doojigger menu if present).
-+	Allow purge filter on front-end (w/admin bar).
++   Removed now redundant 'admin_notices' action.
++   Enhanced admin bar menu (using {eac}Doojigger menu if present).
++   Allow purge filter on front-end (w/admin bar).
 
 = Version 1.1.1 – September 21, 2023 =
 
-+	Security updates.
-+	Fixed action for purge from admin bar.
++   Security updates.
++   Fixed action for purge from admin bar.
 
 = Version 1.1.0 – June 8, 2023 =
 
-+	Removed unnecessary plugin_update_notice trait.
-+	Reworked host/endpoint loader.
-+	Changed $cdn property names.
-+	Isolated Amazon S3 and EC2.
-+	Added RocketCDN and StackPath (universal).
++   Removed unnecessary plugin_update_notice trait.
++   Reworked host/endpoint loader.
++   Changed $cdn property names.
++   Isolated Amazon S3 and EC2.
++   Added RocketCDN and StackPath (universal).
 
 = Version 1.0.0 – May 22, 2023 =
 
-+	First public release.
++   First public release.
