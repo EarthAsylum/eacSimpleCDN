@@ -6,8 +6,8 @@ namespace EarthAsylumConsulting\Extensions;
  * @category	WordPress Plugin
  * @package		{eac}Doojigger\Extensions
  * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
- * @copyright	Copyright (c) 2023 EarthAsylum Consulting <www.EarthAsylum.com>
- * @version 	23.1209.1
+ * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.EarthAsylum.com>
+ * @version 	24.0525.1
  */
 
 abstract class simple_cdn_interface
@@ -75,7 +75,7 @@ abstract class simple_cdn_interface
 			$this->add_action( 'options_settings_help', array($this, '_set_admin_help') );
 		}
 
-		if ($this->is_option('simple_cdn_admin_menu'))
+		if ($this->isEnabled() && $this->is_option('simple_cdn_admin_menu'))
 		{
 			\add_action( 'admin_bar_init', 				array($this, '_get_admin_menu'), 10 );
 			\add_action( 'admin_bar_menu', 				array($this, '_set_admin_menu'), 50 );
@@ -116,7 +116,8 @@ abstract class simple_cdn_interface
 							'label'		=>	'SimpleCDN Status',
 							'default'	=>	'<span class="dashicons dashicons-info-outline"></span>'.
 											'Your content delivery network is currently <em>'.
-											($this->is_option('simple_cdn_enabled') ? 'enabled' : 'disabled').' on this site.</em>',
+											($this->isEnabled() && $this->is_option('simple_cdn_enabled')
+												? 'enabled' : 'disabled').' on this site.</em>',
 				),
 				'simple_cdn_enabled'		=> array(
 							'type'		=>	'hidden',		// set by simplecdn-toggle menu or _on_validate_host
