@@ -9,8 +9,8 @@ Plugin URI:         https://eacdoojigger.earthasylum.com/eacsimplecdn/
 Author:             [EarthAsylum Consulting](https://www.earthasylum.com)  
 Stable tag:         1.1.6  
 Last Updated:       25-May-2024  
-Requires at least:  5.5.0  
-Tested up to:       6.5  
+Requires at least:  5.8  
+Tested up to:       6.6  
 Requires PHP:       7.4  
 Requires EAC:       2.3  
 Contributors:       [kevinburkholder](https://profiles.wordpress.org/kevinburkholder)  
