@@ -9,7 +9,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 	 * @category	WordPress Plugin
 	 * @package		{eac}Doojigger\Extensions
 	 * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
-	 * @copyright	Copyright (c) 2023 EarthAsylum Consulting <www.EarthAsylum.com>
+	 * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.EarthAsylum.com>
 	 * @version		1.x
 	 * @link		https://eacDoojigger.earthasylum.com/
 	 */
@@ -19,7 +19,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		/**
 		 * @var string extension version
 		 */
-		const VERSION	= '23.1210.1';
+		const VERSION	= '24.0927.1';
 
 		/**
 		 * @var required when no provider (yet)
@@ -197,6 +197,16 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 						}
 						return $urls;
 					},10,2
+				);
+
+				// allow cdn host in CORS
+				add_filter( 'allowed_http_origins', function ($allowed)
+					{
+						$origin  = (is_ssl()) ? 'https://' : 'http://';
+						$origin .= $this->cdn->hostname;
+						$allowed[] = $origin;
+						return $allowed;
+					}
 				);
 
 				// do this as late as possible but before any output...

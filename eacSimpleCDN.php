@@ -8,12 +8,12 @@ namespace EarthAsylumConsulting;
  * @package		{eac}Doojigger Extensions\{eac}SimpleCDN
  * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
  * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.earthasylum.com>
- * @version		1.1.6
+ * @version		1.1.7
  *
  * @wordpress-plugin
  * Plugin Name:			{eac}SimpleCDN
  * Description:			{eac}SimpleCDN Implement CDN urls in WordPress front-end pages
- * Version:				1.1.6
+ * Version:				1.1.7
  * Requires at least:	5.8
  * Tested up to:		6.6
  * Requires PHP:		7.4
