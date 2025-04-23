@@ -7,15 +7,14 @@ namespace EarthAsylumConsulting;
  * @category	WordPress Plugin
  * @package		{eac}Doojigger Extensions\{eac}SimpleCDN
  * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
- * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.earthasylum.com>
- * @version		1.1.7
+ * @copyright	Copyright (c) 2025 EarthAsylum Consulting <www.earthasylum.com>
  *
  * @wordpress-plugin
  * Plugin Name:			{eac}SimpleCDN
  * Description:			{eac}SimpleCDN Implement CDN urls in WordPress front-end pages
- * Version:				1.1.7
+ * Version:				1.1.8
  * Requires at least:	5.8
- * Tested up to:		6.6
+ * Tested up to:		6.8
  * Requires PHP:		7.4
  * Plugin URI:			https://eacdoojigger.earthasylum.com/eacsimplecdn/
  * Author:				EarthAsylum Consulting
@@ -24,7 +23,7 @@ namespace EarthAsylumConsulting;
  * License URI:			https://www.gnu.org/licenses/gpl.html
  */
 
-if (!defined('EAC_DOOJIGGER_VERSION'))
+if (!defined('EACDOOJIGGER_VERSION'))
 {
 	\add_action( 'all_admin_notices', function()
 		{
@@ -76,7 +75,7 @@ class eacSimpleCDN
 				/*
     			 * Add our extension to load
     			 */
-				$extensionDirectories[ plugin_basename( __FILE__ ) ] = [plugin_dir_path( __FILE__ ).'/Extensions'];
+				$extensionDirectories[ plugin_basename( __FILE__ ) ] = [plugin_dir_path( __FILE__ )];
 				return $extensionDirectories;
 			}
 		);

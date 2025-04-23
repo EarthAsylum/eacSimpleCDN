@@ -9,8 +9,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 	 * @category	WordPress Plugin
 	 * @package		{eac}Doojigger\Extensions
 	 * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
-	 * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.EarthAsylum.com>
-	 * @version		1.x
+	 * @copyright	Copyright (c) 2025 EarthAsylum Consulting <www.EarthAsylum.com>
 	 * @link		https://eacDoojigger.earthasylum.com/
 	 */
 
@@ -19,7 +18,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		/**
 		 * @var string extension version
 		 */
-		const VERSION	= '24.0927.1';
+		const VERSION	= '25.0417.1';
 
 		/**
 		 * @var required when no provider (yet)
@@ -54,16 +53,16 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 			// the current CDN properties
 			$this->cdn = (object)$this->get_option('simple_cdn_host_array',self::NO_CDN_PROVIDER);
 
+			$this->registerExtension( [$this->className,'Simple CDN'] );
 			if (current_user_can('manage_options'))
 			{
-				$this->registerExtension( [$this->className,'Simple CDN'] );
 				$this->load_cdn_helper();
 			}
 		}
 
 
 		/**
-		 * Register this extension and options
+		 * Register this extension and options - from simple_cdn_interface
 		 *
 		 * @param	string|array 	$optionGroup group name or [groupname, tabname]]
 		 * @param	array 			$optionMeta group option meta
