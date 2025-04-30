@@ -7,8 +7,8 @@
 
 Plugin URI:         https://eacdoojigger.earthasylum.com/eacsimplecdn/  
 Author:             [EarthAsylum Consulting](https://www.earthasylum.com)  
-Stable tag:         1.1.8  
-Last Updated:       19-Apr-2025  
+Stable tag:         1.1.9  
+Last Updated:       29-Apr-2025  
 Requires at least:  5.8  
 Tested up to:       6.8  
 Requires PHP:       7.4  
@@ -263,7 +263,7 @@ See [Managing Plugins -> Manual Plugin Installation](https://wordpress.org/suppo
 
 #### Settings
 
-Once installed and activated options for this extension will show in the 'Simple CDN' tab of {eac}Doojigger settings.
+Once installed and activated options for this extension will show in the 'CDN' tab of {eac}Doojigger settings.
 
 
 ### Screenshots

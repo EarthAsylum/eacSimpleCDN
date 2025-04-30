@@ -6,12 +6,17 @@ namespace EarthAsylumConsulting\Extensions;
  * @category	WordPress Plugin
  * @package		{eac}Doojigger\Extensions
  * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
- * @copyright	Copyright (c) 2024 EarthAsylum Consulting <www.EarthAsylum.com>
- * @version 	24.0525.1
+ * @copyright	Copyright (c) 2025 EarthAsylum Consulting <www.EarthAsylum.com>
+ * @version 	25.0429.1
  */
 
 abstract class simple_cdn_interface
 {
+	/**
+	 * @var string to set default tab name
+	 */
+	const TAB_NAME		= 'CDN';
+
 	/**
 	 * @var default file types to cache
 	 */
@@ -68,11 +73,14 @@ abstract class simple_cdn_interface
 	{
 		$this->parent = $extension;
 
-		if ($this->isSettingsPage('Simple CDN'))
+		if ($this->isSettingsPage(self::TAB_NAME))
 		{
-			$this->add_action( 'options_settings_page', array($this, '_set_admin_options') );
-			// Add contextual help
-			$this->add_action( 'options_settings_help', array($this, '_set_admin_help') );
+			add_action('admin_init', function()
+			{
+				$this->add_action( 'options_settings_page', array($this, '_set_admin_options') );
+				// Add contextual help
+				$this->add_action( 'options_settings_help', array($this, '_set_admin_help') );
+			});
 		}
 
 		if ($this->isEnabled() && $this->is_option('simple_cdn_admin_menu'))
@@ -602,7 +610,7 @@ abstract class simple_cdn_interface
 		 */
 		$content .= \apply_filters('SimpleCDN_add_help','',$this);
 
-		$this->addPluginHelpTab('Simple CDN',$content,['Simple CDN Extension','open']);
+		$this->addPluginHelpTab(['Simple CDN',self::TAB_NAME],$content,['Simple CDN','open']);
 
 		$this->addPluginSidebarLink(
 			"<span class='dashicons dashicons-admin-site'></span>{eac}SimpleCDN",

@@ -18,7 +18,20 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		/**
 		 * @var string extension version
 		 */
-		const VERSION	= '25.0417.1';
+		const VERSION		= '25.0429.1';
+
+		/**
+		 * @var string to set default tab name
+		 */
+		const TAB_NAME		= 'CDN';
+
+		/**
+		 * @var string|array|bool to set (or disable) default group display/switch
+		 * 		false 		disable the 'Enabled'' option for this group
+		 * 		string 		the label for the 'Enabled' option
+		 * 		array 		override options for the 'Enabled' option (label,help,title,info, etc.)
+		 */
+		const ENABLE_OPTION	= 'Simple CDN';
 
 		/**
 		 * @var required when no provider (yet)
@@ -53,7 +66,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 			// the current CDN properties
 			$this->cdn = (object)$this->get_option('simple_cdn_host_array',self::NO_CDN_PROVIDER);
 
-			$this->registerExtension( [$this->className,'Simple CDN'] );
+			$this->registerExtension( $this->className );
 			if (current_user_can('manage_options'))
 			{
 				$this->load_cdn_helper();
@@ -70,7 +83,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		 */
 		public function registerExtensionOptions($optionGroup, $optionMeta = array())
 		{
-			parent::registerExtensionOptions( [$this->className,'Simple CDN'], $optionMeta );
+			parent::registerExtensionOptions( $this->className, $optionMeta );
 		}
 
 

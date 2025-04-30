@@ -12,7 +12,7 @@ namespace EarthAsylumConsulting;
  * @wordpress-plugin
  * Plugin Name:			{eac}SimpleCDN
  * Description:			{eac}SimpleCDN Implement CDN urls in WordPress front-end pages
- * Version:				1.1.8
+ * Version:				1.1.9
  * Requires at least:	5.8
  * Tested up to:		6.8
  * Requires PHP:		7.4
