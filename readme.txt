@@ -8,6 +8,7 @@ Tested up to:       6.8
 Requires PHP:       7.4
 Requires EAC:       3.0
 Contributors:       kevinburkholder
+Donate link:        https://github.com/sponsors/EarthAsylum
 License:            GPLv3 or later
 License URI:        https://www.gnu.org/licenses/gpl.html
 Tags:               cdn, content delivery network, caching, CloudFront, KeyCDN, RocketCDN, Akamai, Rackspace, Azure, {eac}Doojigger
