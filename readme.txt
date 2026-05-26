@@ -1,10 +1,10 @@
 === {eac}Doojigger Simple CDN Extension for WordPress ===
 Plugin URI:         https://eacdoojigger.earthasylum.com/eacsimplecdn/
 Author:             [EarthAsylum Consulting](https://www.earthasylum.com)
-Stable tag:         1.1.9
-Last Updated:       29-Apr-2025
+Stable tag:         1.1.10
+Last Updated:       26-May-2026
 Requires at least:  5.8
-Tested up to:       6.8
+Tested up to:       7.0
 Requires PHP:       7.4
 Requires EAC:       3.0
 Contributors:       kevinburkholder
@@ -280,7 +280,7 @@ Once installed and activated options for this extension will show in the 'CDN' t
 
 == Copyright ==
 
-= Copyright © 2023-2025, EarthAsylum Consulting, distributed under the terms of the GNU GPL. =
+= Copyright © 2026, EarthAsylum Consulting, distributed under the terms of the GNU GPL. =
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -291,11 +291,15 @@ You should receive a copy of the GNU General Public License along with this prog
 
 == Changelog ==
 
+= Version 1.1.10 – May 26, 2026 =
+
++   Compatible with WordPress 7.0.
++   Fixed settings link on plugins page.
+
 = Version 1.1.9 – Apr 29, 2025 =
 
 +   Shorten tab name to "CDN".
 +   Delay registration until `admin_init`.
-
 +   Compatible with WordPress 6.8.
 
 = Version 1.1.8 – Apr 17, 2025 =
