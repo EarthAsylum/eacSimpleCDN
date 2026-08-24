@@ -1,0 +1,15 @@
+# GitHub workflow action on workflow_dispatch (manual run):
+#   In WordPress repository, update readme.txt and/or assets content.
+#
+# Version: 26.0823.1
+
+name: On Dispatch, update assets
+on:
+  # Manually run from GitHub Actions UI
+  workflow_dispatch:
+
+jobs:
+  On-Update-Plugin:
+    uses: EarthAsylum/Workflows/.github/workflows/update-wp-readme.yml@main
+    with:
+      wp_assets: '.wp-assets'
