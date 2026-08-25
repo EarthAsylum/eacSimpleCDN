@@ -14,7 +14,7 @@ namespace EarthAsylumConsulting;
  * Description:			{eac}SimpleCDN Implement CDN urls in WordPress front-end pages
  * Version:				1.1.10
  * Requires at least:	5.8
- * Tested up to:		7.0
+ * Tested up to:		7.1
  * Requires PHP:		7.4
  * Plugin URI:			https://eacdoojigger.earthasylum.com/eacsimplecdn/
  * Author:				EarthAsylum Consulting
