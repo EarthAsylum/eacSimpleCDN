@@ -1,8 +1,8 @@
 === {eac}Doojigger Simple CDN Extension for WordPress ===
 Plugin URI:         https://eacdoojigger.earthasylum.com/eacsimplecdn/
 Author:             [EarthAsylum Consulting](https://www.earthasylum.com)
-Stable tag:         1.1.10
-Last Updated:       26-May-2026
+Stable tag:         1.1.11
+Last Updated:       08-Sep-2026
 Requires at least:  5.8
 Tested up to:       7.1
 Requires PHP:       7.4
@@ -290,6 +290,14 @@ You should receive a copy of the GNU General Public License along with this prog
 
 
 == Changelog ==
+
+= Version 1.1.11 – September 8, 2026 =
+
++	Compatible with WordPress 7.1.
++	Admin notification on missing required plugin.
++	Aesthetic/Nonstructural changes...
+	+	WP plugins page links.
+	+	Plugin DocBlocks, readme headers, etc.
 
 = Version 1.1.10 – May 26, 2026 =
 
