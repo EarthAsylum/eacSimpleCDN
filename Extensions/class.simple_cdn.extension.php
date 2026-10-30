@@ -9,7 +9,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 	 * @category	WordPress Plugin
 	 * @package		{eac}Doojigger\Extensions
 	 * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
-	 * @copyright	Copyright (c) 2025 EarthAsylum Consulting <www.EarthAsylum.com>
+	 * @copyright	Copyright (c) 2026 EarthAsylum Consulting <www.EarthAsylum.com>
 	 * @link		https://eacDoojigger.earthasylum.com/
 	 */
 
@@ -18,7 +18,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		/**
 		 * @var string extension version
 		 */
-		const VERSION		= '25.0429.1';
+		const VERSION		= '26.1026.1';
 
 		/**
 		 * @var string to set default tab name
@@ -301,7 +301,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		 * @param	int		$phase output handler phase
 		 * @return	string
 		 */
-		public function get_page_buffer(string $buffer=null, int $phase): string
+		public function get_page_buffer(?string $buffer=null, ?int $phase=null): string
 		{
 			if (!empty($buffer))
 			{
@@ -318,7 +318,7 @@ if (! class_exists(__NAMESPACE__.'\Simple_CDN_extension', false) )
 		 * @param	string	$buffer page content
 		 * @return	string
 		 */
-		public function rewrite_page(string $buffer=null): string
+		public function rewrite_page(?string $buffer=null): string
 		{
 			$cdnHost	= $this->cdn->endpoint;
 

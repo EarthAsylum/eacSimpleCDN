@@ -6,8 +6,8 @@ namespace EarthAsylumConsulting\Extensions;
  * @category	WordPress Plugin
  * @package		{eac}Doojigger\Extensions
  * @author		Kevin Burkholder <KBurkholder@EarthAsylum.com>
- * @copyright	Copyright (c) 2023 EarthAsylum Consulting <www.EarthAsylum.com>
- * @version 	23.0523.1
+ * @copyright	Copyright (c) 2026 EarthAsylum Consulting <www.EarthAsylum.com>
+ * @version 	26.1026.1
  */
 
 require 'simple_cdn.interface.php';
@@ -23,6 +23,7 @@ abstract class simple_cdn_provider extends simple_cdn_interface
 	public $host;		// cloudfront.net						r10.cf1.rackcdn.com
 	public $domain;		// cloudfront.net						rackcdn.com
 	public $provider;	// CloudFront							Rackspace
+	public $helper;		// cdn helpser class
 
 
 	/**

@@ -1,11 +1,11 @@
 === {eac}Doojigger Simple CDN Extension for WordPress ===
 Plugin URI:         https://eacdoojigger.earthasylum.com/eacsimplecdn/
 Author:             [EarthAsylum Consulting](https://www.earthasylum.com)
-Stable tag:         1.1.11
-Last Updated:       08-Sep-2026
+Stable tag:         1.1.12
+Last Updated:       26-Oct-2026
 Requires at least:  5.8
 Tested up to:       7.1
-Requires PHP:       7.4
+Requires PHP:       8.1
 Requires EAC:       3.0
 Contributors:       kevinburkholder
 Donate link:        https://github.com/sponsors/EarthAsylum
@@ -290,6 +290,12 @@ You should receive a copy of the GNU General Public License along with this prog
 
 
 == Changelog ==
+
+= Version 1.1.12 – October 26, 2026 =
+
++	Fixed `Creation of dynamic property` error.
++	Fixed `Implicitly marking parameter as nullable`.
++	Added `dependency.php`.
 
 = Version 1.1.11 – September 8, 2026 =
 

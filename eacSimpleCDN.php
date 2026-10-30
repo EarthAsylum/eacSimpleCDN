@@ -15,10 +15,10 @@ namespace EarthAsylumConsulting;
  * @wordpress-plugin
  * Plugin Name:			{eac}SimpleCDN
  * Description:			{eac}SimpleCDN Implement CDN urls in WordPress front-end pages
- * Version:				1.1.11
+ * Version:				1.1.12
  * Requires at least:	5.8
  * Tested up to:		7.1
- * Requires PHP:		7.4
+ * Requires PHP:		8.1
  * Plugin URI:			https://eacdoojigger.earthasylum.com/eacsimplecdn/
  * Author:				EarthAsylum Consulting
  * Author URI:			http://www.earthasylum.com
@@ -26,17 +26,15 @@ namespace EarthAsylumConsulting;
  * License URI:			https://www.gnu.org/licenses/gpl.html
  */
 
-if (!defined('EACDOOJIGGER_VERSION'))
+if (!defined( 'EACDOOJIGGER_VERSION' ) )
 {
-	\add_action( 'admin_notices', function()
-		{
-			echo '<div class="notice notice-error is-dismissible">'.
-				 '<em>{eac}SimpleCDN</em> requires installation & activation of '.
-				 '<a href="https://eacdoojigger.earthasylum.com/eacdoojigger" target="_blank">'.
-				 '{eac}Doojigger</a>.</div>';
-		}
-	);
-	return;
+	require_once 'dependency.php';
+	return dependency::notice([
+		'plugin'	=>	[ '{eac}SimpleCDN' 		=> plugin_basename( __FILE__ ) ],
+		'requires'	=> 	[ '{eac}Doojigger' 		=> 'eacDoojigger/eacDoojigger.php' ],
+		'manifest'	=> 'https://eacdoojigger.earthasylum.com/software-updates/eacdoojigger.json',
+		'after'		=> self_admin_url('/admin.php?page=eacdoojigger-settings&tab=registration')
+	]);
 }
 
 class eacSimpleCDN
